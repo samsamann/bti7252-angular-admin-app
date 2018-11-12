@@ -1,6 +1,16 @@
 <mat-sidenav-container class="app-container">
   <mat-sidenav #sidebarNav>
-    <p>Content</p>
+    <mat-nav-list>
+      <a *ngFor="let route of routes"
+         mat-list-item
+         routerLinkActive
+         (click)="sidebarNav.close()"
+         #routerLinkActiveInstance="routerLinkActive"
+         [attr.tabindex]="routerLinkActiveInstance.isActive ? 0 : -1"
+         [routerLink]="[route.path]">
+        {{route.name}}
+      </a>
+    </mat-nav-list>
   </mat-sidenav>
 
   <div>
