@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatInputModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatListModule, MatInputModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
 import {CdkTableModule} from '@angular/cdk/table';
 
@@ -10,9 +11,12 @@ import {CdkTableModule} from '@angular/cdk/table';
   declarations: [],
   imports: [
     CommonModule,
+    LayoutModule,
     MatButtonModule,
     MatCardModule,
+    MatFormFieldModule,
     MatIconModule,
+    MatInputModule,
     MatListModule,
     MatTableModule,
     MatInputModule,
@@ -22,9 +26,12 @@ import {CdkTableModule} from '@angular/cdk/table';
   exports: [
     CdkTableModule,
     CommonModule,
+    LayoutModule,
     MatButtonModule,
     MatCardModule,
+    MatFormFieldModule,
     MatIconModule,
+    MatInputModule,
     MatListModule,
     MatTableModule,
     MatInputModule,

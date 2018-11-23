@@ -1,3 +1,3 @@
 export interface MapperPageContent {
-  sensors: number[];
+  sensors: string[];
 }

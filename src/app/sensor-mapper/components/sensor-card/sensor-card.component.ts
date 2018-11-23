@@ -31,7 +31,6 @@ export class SensorCardComponent implements OnInit {
   }
 
   toggleFlip() {
-    console.log(this.flip);
     this.flip = (this.flip === 'inactive') ? 'active' : 'inactive';
   }
 }

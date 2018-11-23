@@ -15,7 +15,7 @@ export class SensorMapperMobileComponent implements OnInit, MapperPageContent  {
   sensorDataSource = new MatTableDataSource(ELEMENT_DATA);
 
   @Input()
-  sensors: number[];
+  sensors: string[];
 
   constructor() {
   }
