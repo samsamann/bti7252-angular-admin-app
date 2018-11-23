@@ -28,7 +28,8 @@ export class MapperPageComponent implements OnInit {
 
   ngOnInit() {
     this.breakpoint.observe([
-      Breakpoints.Small
+      Breakpoints.Small,
+      Breakpoints.XSmall
     ]).subscribe(result => {
         if (result.matches) {
           this.addComponent(SensorMapperMobileComponent);
