@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild, ComponentFactoryResolver, } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 import { MapperPageContent } from '../mapper-page-content';
-import { MapperPageContentDirective } from './../mapper-page-content.directive';
-import { SensorMapperModule } from '../../sensor-mapper.module';
+import { MapperPageContentDirective } from '../mapper-page-content.directive';
 import { SensorMapperMobileComponent } from '../sensor-mapper-mobile/sensor-mapper-mobile.component';
 import { SensorMapperDesktopComponent } from '../sensor-mapper-desktop/sensor-mapper-desktop.component';
+
 
 @Component({
   selector: 'app-mapper-page',
@@ -16,28 +18,36 @@ export class MapperPageComponent implements OnInit {
   @ViewChild(MapperPageContentDirective)
   contentHost: MapperPageContentDirective;
 
-  private isMobileResolution: boolean;
+  sensors: string[];
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
-    console.log(window.innerWidth);
-    this.isMobileResolution = (window.innerWidth < 768) ? true : false;
-  }
+  private currentComp: MapperPageContent;
 
-  addComponent(component: any) {
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-    console.log(componentFactory);
-    let viewContainerRef = this.contentHost.viewContainerRef;
-    viewContainerRef.clear();
-
-    let componentRef = viewContainerRef.createComponent(componentFactory);
-    (<MapperPageContent>componentRef.instance).sensors = [1,2,3,4,5];
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private breakpoint: BreakpointObserver) {
+    this.sensors = ['test', 'fest', 'gugus', 'foo', 'bar'];
   }
 
   ngOnInit() {
-    if (this.isMobileResolution) {
-      this.addComponent(SensorMapperMobileComponent);
-    } else {
-      this.addComponent(SensorMapperDesktopComponent);
-    }
+    this.breakpoint.observe([
+      Breakpoints.Small
+    ]).subscribe(result => {
+        if (result.matches) {
+          this.addComponent(SensorMapperMobileComponent);
+        } else {
+          this.addComponent(SensorMapperDesktopComponent);
+        }
+    });
+  }
+
+  filtered(event: string[]) {
+    this.currentComp.sensors = event;
+  }
+
+  private addComponent(component: any) {
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+    const viewContainerRef = this.contentHost.viewContainerRef;
+    viewContainerRef.clear();
+
+    this.currentComp = viewContainerRef.createComponent(componentFactory).instance;
+    this.currentComp.sensors = this.sensors;
   }
 }

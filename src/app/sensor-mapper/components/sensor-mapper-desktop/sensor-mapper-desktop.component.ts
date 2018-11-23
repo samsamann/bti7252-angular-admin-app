@@ -27,11 +27,9 @@ import { MapperPageContent } from '../mapper-page-content';
 export class SensorMapperDesktopComponent implements OnInit, MapperPageContent  {
 
   @Input()
-  public sensors: number[];
+  public sensors: string[];
 
-  constructor() {
-    this.sensors = [1, 2, 3, 4, 5, 6, 7, 8];
-  }
+  constructor() {}
 
   ngOnInit() {
   }

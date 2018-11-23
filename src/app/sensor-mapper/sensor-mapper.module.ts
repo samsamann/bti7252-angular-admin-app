@@ -9,6 +9,7 @@ import { SensorMapperMobileComponent } from './components/sensor-mapper-mobile/s
 import { MapperPageContentDirective } from './components/mapper-page-content.directive';
 import { SensorCardComponent } from './components/sensor-card/sensor-card.component';
 import { SensorMapperDesktopComponent } from './components/sensor-mapper-desktop/sensor-mapper-desktop.component';
+import { SensorFilterComponent } from './components/sensor-filter/sensor-filter.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { SensorMapperDesktopComponent } from './components/sensor-mapper-desktop
     SensorMapperMobileComponent,
     MapperPageContentDirective,
     SensorCardComponent,
-    SensorMapperDesktopComponent
+    SensorMapperDesktopComponent,
+    MapperPageComponent,
+    SensorFilterComponent
   ],
   entryComponents: [ SensorMapperMobileComponent, SensorMapperDesktopComponent ],
   imports: [
