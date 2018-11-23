@@ -9,7 +9,7 @@ import { MapperPageContent } from '../mapper-page-content';
 export class SensorMapperMobileComponent implements OnInit, MapperPageContent  {
 
   @Input()
-  data: String[];
+  sensors: number[];
 
   constructor() { }
 

@@ -3,6 +3,7 @@ import { MapperPageContent } from '../mapper-page-content';
 import { MapperPageContentDirective } from './../mapper-page-content.directive';
 import { SensorMapperModule } from '../../sensor-mapper.module';
 import { SensorMapperMobileComponent } from '../sensor-mapper-mobile/sensor-mapper-mobile.component';
+import { SensorMapperDesktopComponent } from '../sensor-mapper-desktop/sensor-mapper-desktop.component';
 
 @Component({
   selector: 'app-mapper-page',
@@ -10,40 +11,33 @@ import { SensorMapperMobileComponent } from '../sensor-mapper-mobile/sensor-mapp
   styleUrls: ['./mapper-page.component.scss']
 })
 
-
 export class MapperPageComponent implements OnInit {
 
   @ViewChild(MapperPageContentDirective)
   contentHost: MapperPageContentDirective;
 
-
   private isMobileResolution: boolean;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {
     console.log(window.innerWidth);
-    if (window.innerWidth < 768) {
-      this.isMobileResolution = true;
-
-    } else {
-      this.isMobileResolution = false;
-    }
+    this.isMobileResolution = (window.innerWidth < 768) ? true : false;
   }
 
-  addMobileComponent() {
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(SensorMapperMobileComponent);
+  addComponent(component: any) {
+    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     console.log(componentFactory);
     let viewContainerRef = this.contentHost.viewContainerRef;
     viewContainerRef.clear();
 
     let componentRef = viewContainerRef.createComponent(componentFactory);
-    (<MapperPageContent>componentRef.instance).data = ["1", "2", "3"];
+    (<MapperPageContent>componentRef.instance).sensors = [1,2,3,4,5];
   }
 
   ngOnInit() {
     if (this.isMobileResolution) {
-      this.addMobileComponent();
+      this.addComponent(SensorMapperMobileComponent);
     } else {
-      console.log("desktop");
+      this.addComponent(SensorMapperDesktopComponent);
     }
   }
 }
