@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
@@ -7,6 +8,7 @@ import { RouterModule } from '@angular/router';
   declarations: [],
   imports: [
     CommonModule,
+    LayoutModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
@@ -17,6 +19,7 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     CommonModule,
+    LayoutModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,

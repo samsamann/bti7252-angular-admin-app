@@ -17,7 +17,7 @@ import { SensorFilterComponent } from './components/sensor-filter/sensor-filter.
     SensorMapperMobileComponent,
     MapperPageContentDirective,
     SensorCardComponent,
-    SensorMapperDesktopComponent
+    SensorMapperDesktopComponent,
     MapperPageComponent,
     SensorFilterComponent
   ],
