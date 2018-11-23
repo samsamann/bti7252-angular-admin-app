@@ -1,3 +1,9 @@
-<p>
-  sensor-mapper-mobile works!
-</p>
+<mat-table #table [dataSource]="sensorDataSource">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Sensor Name </mat-header-cell>
+    <mat-cell *matCellDef="let sensor"> {{sensor.name}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="sensorClicked(row)"></mat-row>
+</mat-table>
