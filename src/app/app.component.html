@@ -12,6 +12,9 @@
       </a>
     </mat-nav-list>
   </mat-sidenav>
+  <mat-sidenav #rightSidebar mode="open" position="end">
+    <router-outlet name="sidebar" (activate)='rightSidebar.toggle()'></router-outlet>
+  </mat-sidenav>
 
   <div>
     <mat-toolbar color="primary">
