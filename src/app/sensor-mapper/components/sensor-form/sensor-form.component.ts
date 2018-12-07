@@ -14,6 +14,7 @@ export class SensorFormComponent implements OnInit {
 
   saveForm() {
     console.log("save");
+   // this.sensorService.getSensors();
   }
 
   cancelForm() {
