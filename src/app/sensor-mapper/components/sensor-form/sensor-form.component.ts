@@ -12,4 +12,11 @@ export class SensorFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  saveForm() {
+    console.log("save");
+  }
+
+  cancelForm() {
+    console.log("cancel");
+  }
 }
