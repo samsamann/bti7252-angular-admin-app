@@ -48,7 +48,7 @@ export class MapperPageComponent implements OnInit {
     const viewContainerRef = this.contentHost.viewContainerRef;
     viewContainerRef.clear();
 
-    this.currentComp = viewContainerRef.createComponent(componentFactory).instance;
+    this.currentComp = <MapperPageContent>viewContainerRef.createComponent(componentFactory).instance;
     this.currentComp.sensors = this.sensors;
   }
 }

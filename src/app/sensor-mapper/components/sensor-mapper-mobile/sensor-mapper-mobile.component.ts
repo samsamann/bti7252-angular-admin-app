@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material';
 export class SensorMapperMobileComponent implements OnInit, MapperPageContent  {
 
   displayedColumns = ['name'];
-  sensorDataSource: MatTableDataSource;
+  sensorDataSource: MatTableDataSource<String>;
 
   @Input()
   sensors: string[];
