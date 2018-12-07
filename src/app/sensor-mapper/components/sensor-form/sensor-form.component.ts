@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'app-sensor-form',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SensorFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
   }
@@ -17,6 +19,7 @@ export class SensorFormComponent implements OnInit {
   }
 
   cancelForm() {
+    this.location.back();
     console.log("cancel");
   }
 }
