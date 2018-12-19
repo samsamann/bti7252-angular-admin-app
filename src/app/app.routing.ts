@@ -10,6 +10,10 @@ const routes: Routes = [
     loadChildren: './sensor-mapper/sensor-mapper.module#SensorMapperModule',
   },
   {
+    path: 'apps',
+    loadChildren: './app-overview/app-overview.module#AppOverviewModule',
+  },
+  {
     path: '',
     pathMatch: 'full',
     component: HomePageComponent

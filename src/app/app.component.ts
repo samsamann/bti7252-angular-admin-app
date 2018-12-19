@@ -27,6 +27,10 @@ export class AppComponent {
       {
         name: 'Sensor Mapper',
         path: 'mapper'
+      },
+      {
+        name: 'Apps',
+        path: 'apps'
       }
     ];
   }
