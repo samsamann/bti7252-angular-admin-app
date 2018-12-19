@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MapperPageContent } from '../mapper-page-content';
 import { MatTableDataSource } from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -17,11 +18,11 @@ export class SensorMapperMobileComponent implements OnInit, MapperPageContent  {
   @Input()
   sensors: string[];
 
-  constructor() {
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   sensorClicked(sensor) {
-    alert(sensor);
+    this.router.navigate(['..', {outlets: {sidebar: 'form'}}], { relativeTo: this.route });
   }
 
   ngOnInit() {

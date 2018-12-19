@@ -15,11 +15,9 @@ export class SensorFormComponent implements OnInit {
   }
 
   saveForm() {
-    console.log("save");
   }
 
   cancelForm() {
     this.location.back();
-    console.log("cancel");
   }
 }

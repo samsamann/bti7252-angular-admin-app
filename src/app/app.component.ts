@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +9,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  routes: {
+  @ViewChild('rightSidebar')
+  private rightSidenav: MatSidenav;
+
+  public routes: {
     name: string;
     path: string;
     icon?: string;
   }[];
 
-  constructor() {
+  constructor(private location: Location) {
     this.routes = [
       {
         name: 'Home',
@@ -24,5 +29,11 @@ export class AppComponent {
         path: 'mapper'
       }
     ];
+  }
+
+  public navigateBack() {
+    if (this.rightSidenav.opened) {
+      this.location.back();
+    }
   }
 }

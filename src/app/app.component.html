@@ -1,4 +1,4 @@
-<mat-sidenav-container class="app-container">
+<mat-sidenav-container class="app-container" (backdropClick)="navigateBack()">
   <mat-sidenav #sidebarNav>
     <mat-nav-list>
       <a *ngFor="let route of routes"
@@ -13,7 +13,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav #rightSidebar mode="open" position="end">
-    <router-outlet name="sidebar" (activate)='rightSidebar.toggle()'></router-outlet>
+    <router-outlet name="sidebar" (activate)='rightSidebar.open()' (deactivate)='rightSidebar.close()'></router-outlet>
   </mat-sidenav>
 
   <div>
