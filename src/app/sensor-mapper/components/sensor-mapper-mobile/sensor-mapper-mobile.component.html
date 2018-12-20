@@ -1,7 +1,7 @@
 <mat-table #table [dataSource]="sensorDataSource">
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Sensor Name </mat-header-cell>
-    <mat-cell *matCellDef="let sensor"> {{sensor}} </mat-cell>
+    <mat-cell *matCellDef="let sensor"> {{sensor.name}} </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

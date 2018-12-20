@@ -12,32 +12,29 @@ interface Sensor {
 }
 
 @Injectable({
-  providedIn: SensorMapperModule
+  providedIn: 'root'
 })
 export class SensorService {
 
-  courses: Observable<Sensor[]>;
+  sensors: Observable<Sensor[]>;
 
-  host: String = "https://angular-http-guide.firebaseio.com"
+  host: String = "http://127.0.0.1:3000"
 
-  constructor(private http:HttpClient) { }
+  constructor(private httpClient:HttpClient) { }
 
-  getSensors() : [Sensor] {
+  getSensors() : Observable<Sensor[]> {
+    //const params = new HttpParams({fromString: '_page=1&_limit=1'});
 
-    const params = new HttpParams()
-           .set('orderBy', '"$key"')
-           .set('limitToFirst', "1");
+    const params = new HttpParams().set('_page', "1")
+                                   .set('_limit', "3");
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const options = { params: params, headers: headers };
 
-    const headers = new HttpHeaders().set("X-CustomHeader", "custom header value");
-
-    this.courses = this.http
-        .get(
-          this.host + "/courses.json",
-          {params: params}).pipe(tap(console.log));
-        //.map(data => _.values(data));
-        //https://stackoverflow.com/questions/50209119/property-do-does-not-exist-on-type-observableiproduct
-
-        return [{id:"",name:"",info:""}]
+    this.sensors = this.httpClient.get<Sensor[]>(this.host + '/sensors', options);
+    return this.sensors;
   }
 
+  //todo
+  //deleteSensor() {}
+  //patch update sensor
 }

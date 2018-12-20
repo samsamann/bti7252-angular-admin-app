@@ -3,6 +3,8 @@ import { MapperPageContent } from '../mapper-page-content';
 import { MatTableDataSource } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { Sensor } from ".././sensor-mapper-mobile/sensor-mapper-mobile.component";
+
 
 @Component({
   selector: 'app-sensor--mobile',
@@ -13,10 +15,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SensorMapperMobileComponent implements OnInit, MapperPageContent  {
 
   displayedColumns = ['name'];
-  sensorDataSource: MatTableDataSource<String>;
+  sensorDataSource: MatTableDataSource<Sensor>;
 
   @Input()
-  sensors: string[];
+  public sensors: Sensor[];
 
   constructor(private router: Router, private route: ActivatedRoute) {
   }

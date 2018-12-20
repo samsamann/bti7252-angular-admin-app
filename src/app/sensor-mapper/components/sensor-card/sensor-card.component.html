@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Sensor {{sensor}}</mat-card-title>
-    <mat-card-subtitle>Gugus</mat-card-subtitle>
+    <mat-card-title>Sensor {{sensor.name}}</mat-card-title>
+    <mat-card-subtitle>{{sensor.info}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <button mat-flat-button (click)="editSensorData()">Edit</button>

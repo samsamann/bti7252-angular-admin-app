@@ -1,0 +1,20 @@
+{
+  "sensors": [
+      {
+      "id": 1,
+      "name": "Sensor Einss",
+      "info": "Ich bin Bruno, der Lüftungssensor."
+      },
+      {
+      "id": 2,
+      "name": "Sensor Zweiiii",
+      "info": "Ich auch "
+      },
+      {
+      "id": 3,
+      "name": "Sensor Drrrrei",
+      "info": "nnnniiieen nnnnn mee tooo"
+      }
+
+  ]
+}

@@ -1,6 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
+import { Sensor } from '../sensor-mapper-mobile/sensor-mapper-mobile.component';
 
 @Component({
   selector: 'app-sensor-filter',
@@ -15,16 +16,16 @@ import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators'
 export class SensorFilterComponent implements OnInit {
 
   @Input()
-  sensors: string[];
+  sensors: Sensor[];
 
   @Output()
-  filteredSensors: EventEmitter<string[]>;
+  filteredSensors: EventEmitter<Sensor[]>;
 
   @ViewChild('input')
   inputEl: ElementRef;
 
   constructor() {
-    this.filteredSensors = new EventEmitter<string[]>();
+    this.filteredSensors = new EventEmitter<Sensor[]>();
   }
 
   ngOnInit() {
@@ -39,7 +40,7 @@ export class SensorFilterComponent implements OnInit {
       if (text === '') {
         this.filteredSensors.emit(this.sensors);
       } else {
-        this.filteredSensors.emit(this.sensors.filter(sensor => sensor.includes(text)));
+        this.filteredSensors.emit(this.sensors.filter(sensor => sensor.name.includes(text)));
       }
     });
   }

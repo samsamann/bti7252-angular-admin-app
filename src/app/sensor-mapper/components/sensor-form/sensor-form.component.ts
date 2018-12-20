@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Location} from '@angular/common';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sensor-form',
@@ -16,8 +15,7 @@ export class SensorFormComponent implements OnInit {
 
   saveForm() {
     console.log("save");
-   // this.sensorService.getSensors();
-
+    this.location.back();
   }
 
   cancelForm() {
