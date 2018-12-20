@@ -1,9 +1,9 @@
-<mat-card [@flipState]="flip">
+<mat-card>
   <mat-card-header>
     <mat-card-title>Sensor {{sensor}}</mat-card-title>
     <mat-card-subtitle>Gugus</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <button mat-fab (click)="toggleFlip()">Flip</button>
+    <button mat-flat-button (click)="editSensorData()">Edit</button>
   </mat-card-content>
 </mat-card>

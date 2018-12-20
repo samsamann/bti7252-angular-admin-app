@@ -1,6 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatNativeDateModule, MatIconModule, MatListModule, MatInputModule, MatTableModule, MatToolbarModule,  MatSelectModule
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatNativeDateModule,
+  MatIconModule,
+  MatListModule,
+  MatInputModule,
+  MatTableModule,
+  MatToolbarModule,
+  MatSelectModule,
+  MatSlideToggleModule
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
@@ -15,6 +27,7 @@ import {CdkTableModule} from '@angular/cdk/table';
     LayoutModule,
     MatButtonModule,
     MatCardModule,
+    MatDividerModule,
     MatFormFieldModule,
     MatNativeDateModule,
     MatIconModule,
@@ -23,8 +36,9 @@ import {CdkTableModule} from '@angular/cdk/table';
     MatTableModule,
     MatInputModule,
     MatToolbarModule,
-    RouterModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSlideToggleModule,
+    RouterModule
   ],
   exports: [
     CdkTableModule,
@@ -32,6 +46,7 @@ import {CdkTableModule} from '@angular/cdk/table';
     LayoutModule,
     MatButtonModule,
     MatCardModule,
+    MatDividerModule,
     MatFormFieldModule,
     MatNativeDateModule,
     MatIconModule,
@@ -40,8 +55,9 @@ import {CdkTableModule} from '@angular/cdk/table';
     MatTableModule,
     MatInputModule,
     MatToolbarModule,
-    RouterModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSlideToggleModule,
+    RouterModule
   ]
 })
 export class SharedModule { }
