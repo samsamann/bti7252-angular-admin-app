@@ -13,9 +13,10 @@
       <h6>Threshold</h6>
       <form>
         <mat-form-field>
-          <input matInput="number" placeholder="Threshold value">
+          <input matInput="number" [checked]="ventilatorOn" (change)="changeOnOff($event)" placeholder="Threshold value" value="{{ thresholdValue }}">
         </mat-form-field>
-        <button style="display: block;" mat-raised-button color="accent">Save threshold</button>
+        <button type="button" style="display: block;" mat-raised-button color="accent"
+                (click)="saveThreshold()" disabled="{{ widget === undefined }}">Save Threshold</button>
       </form>
     </div>
   </mat-card-content>

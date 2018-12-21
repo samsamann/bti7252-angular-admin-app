@@ -1,9 +1,8 @@
 import { HttpClient, HttpEventType, HttpHeaders, HttpParams, HttpRequest} from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
-import { tap, map } from 'rxjs/operators';
 
-import { SensorMapperModule } from '../sensor-mapper.module';
+import { environment } from '../../../environments/environment';
 
 interface Sensor {
   id: string;
@@ -18,9 +17,7 @@ export class SensorService {
 
   sensors: Observable<Sensor[]>;
 
-  host: String = "http://127.0.0.1:3000"
-
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getSensors() : Observable<Sensor[]> {
     //const params = new HttpParams({fromString: '_page=1&_limit=1'});
@@ -30,7 +27,7 @@ export class SensorService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const options = { params: params, headers: headers };
 
-    this.sensors = this.httpClient.get<Sensor[]>(this.host + '/sensors', options);
+    this.sensors = this.httpClient.get<Sensor[]>(environment.apiUrl + '/sensors', options);
     return this.sensors;
   }
 
