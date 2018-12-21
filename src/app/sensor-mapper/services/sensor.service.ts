@@ -32,7 +32,7 @@ export class SensorService {
     const params = new HttpParams().set('id', id);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const options = { params: params, headers: headers };
-    this.sensors = this.httpClient.get<Sensor[]>(this.host + '/sensors', options);
+    this.sensors = this.httpClient.get<Sensor[]>(environment.apiUrl + '/sensors', options);
     return this.sensors;
   }
 
