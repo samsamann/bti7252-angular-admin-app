@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Sensor } from '../../services/sensor.service';
 
 @Component({
   selector: 'app-sensor-form',
@@ -7,6 +8,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./sensor-form.component.scss']
 })
 export class SensorFormComponent implements OnInit {
+
+  @Input()
+  public sensor: Sensor;
 
   constructor(private location: Location) { }
 

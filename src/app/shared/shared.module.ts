@@ -16,7 +16,7 @@ import {
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
-import {CdkTableModule} from '@angular/cdk/table';
+import { CdkTableModule } from '@angular/cdk/table';
 
 
 

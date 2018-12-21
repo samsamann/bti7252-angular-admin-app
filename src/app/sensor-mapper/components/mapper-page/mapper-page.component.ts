@@ -6,16 +6,9 @@ import { MapperPageContentDirective } from '../mapper-page-content.directive';
 import { SensorMapperMobileComponent } from '../sensor-mapper-mobile/sensor-mapper-mobile.component';
 import { SensorMapperDesktopComponent } from '../sensor-mapper-desktop/sensor-mapper-desktop.component';
 
-import { SensorService } from '../../services/sensor.service';
+import { Sensor, SensorService } from '../../services/sensor.service';
 
 import { Observable } from "rxjs";
-
-interface Sensor {
-  id: string;
-  name:string;
-  info:string;
-}
-
 
 @Component({
   selector: 'app-mapper-page',
@@ -36,17 +29,23 @@ export class MapperPageComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // needs refactoring GET is called twice
     this.breakpoint.observe([
       Breakpoints.Small,
       Breakpoints.XSmall
     ]).subscribe(result => {
+
+      this.sensorService.getSensors().subscribe(sensors => {
+        this.sensors = sensors
+
         if (result.matches) {
           this.addComponent(SensorMapperMobileComponent);
         } else {
           this.addComponent(SensorMapperDesktopComponent);
         }
+      });
     });
-    this.sensorService.getSensors().subscribe(sensors => this.sensors = sensors);
   }
 
   filtered(event: Sensor[]) {

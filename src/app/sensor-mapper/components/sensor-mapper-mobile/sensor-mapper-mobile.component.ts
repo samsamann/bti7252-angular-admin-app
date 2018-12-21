@@ -3,7 +3,7 @@ import { MapperPageContent } from '../mapper-page-content';
 import { MatTableDataSource } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Sensor } from ".././sensor-mapper-mobile/sensor-mapper-mobile.component";
+import { Sensor } from '../../services/sensor.service';
 
 
 @Component({
@@ -32,8 +32,3 @@ export class SensorMapperMobileComponent implements OnInit, MapperPageContent  {
   }
 
 }
-
-export interface Sensor {
-  name: string;
-}
-

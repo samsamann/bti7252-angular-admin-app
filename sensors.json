@@ -2,19 +2,18 @@
   "sensors": [
       {
       "id": 1,
-      "name": "Sensor Einss",
-      "info": "Ich bin Bruno, der Lüftungssensor."
+      "name": "Sensor Eins",
+      "info": "Ich bin ein Lüftungssensor."
       },
       {
       "id": 2,
-      "name": "Sensor Zweiiii",
-      "info": "Ich auch "
+      "name": "Sensor Zwei",
+      "info": "Ich auch."
       },
       {
       "id": 3,
-      "name": "Sensor Drrrrei",
+      "name": "Sensaur Dröeiii",
       "info": "nnnniiieen nnnnn mee tooo"
       }
-
   ]
 }

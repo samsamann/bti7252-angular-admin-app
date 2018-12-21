@@ -1,7 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
-import { Sensor } from '../sensor-mapper-mobile/sensor-mapper-mobile.component';
+import { Sensor } from '../../services/sensor.service';
 
 @Component({
   selector: 'app-sensor-filter',

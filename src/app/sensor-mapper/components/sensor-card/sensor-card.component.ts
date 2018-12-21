@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Sensor } from '../../services/sensor.service';
 
 @Component({
   selector: 'app-sensor-card',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SensorCardComponent implements OnInit {
 
   @Input()
-  public sensor: number;
+  public sensor: Sensor;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -17,6 +18,6 @@ export class SensorCardComponent implements OnInit {
   }
 
   editSensorData() {
-    this.router.navigate(['..', {outlets: {sidebar: 'form'}}], { relativeTo: this.route });
+    this.router.navigate(['..', {outlets: {sidebar: 'form'}}, "10"], { relativeTo: this.route } );
   }
 }
